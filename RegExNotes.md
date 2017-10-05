@@ -62,7 +62,15 @@ Use square brackes **\[\]** to match one character from a choice of characters. 
 By combining a character match with the **\\b** word boundary you can match the beginning and ending characters of a word
 
 * **\\be** - match all "e" characters at the beginning of a word
-* **\\be** - match all "e" characters at the end of a word
+* **e\\b** - match all "e" characters at the end of a word
+
+Note the similarity to
+
+* **\\se** - match all "e" characters the beginning of a word that are proceeded by a whitespace (the white space is included in the match)
+* **e\\s** - match all "e" characters at the end of a word followed by a whitespace which is also included in the match
+
+but these don't match those words ending in punctuation rather than white space, it is also matching two adjacent characters (the word character and the whitespace)
+
 
 # Match start and end of strings
 
