@@ -15,7 +15,7 @@ Note that since the following are special characters they must be escaped with a
 * **\\** -
 * **^** -
 * **$** -
-* **.** -
+* **.** - (period) matches almost any character except line breaks
 * **|** -
 * **?** -
 * **\*** -
@@ -27,6 +27,8 @@ Note that since the following are special characters they must be escaped with a
 
 # Character Classes
 
+## Sets of characters
+
 Use square brackes **\[\]** to match one character from a choice of characters.  Dashes (minus sign) are used to specify a range of characters.
 
 * **\[ae\]** - matches either "a" or "e" as in **gr\[ae]y** which will match either gray or grey.
@@ -34,3 +36,20 @@ Use square brackes **\[\]** to match one character from a choice of characters. 
 * **\[a-z\]** - match all lowercase letters
 * **\[A-Z\]** - match all uppercase letters
 * **\[A-Z0-9\]** - match all uppercase letters and all single digits
+
+## Character class shortcuts
+
+* **\\d** - match a digit 0-9
+* **\\w** - match a "word" character, an alphanumeric character plus the underscore
+* **\\s** - match a whitespace (space or tab)
+
+## Non-printable characters
+
+* **\\n** - match the newline character
+* **\\r** - match the carriage return (on Windows search for **\\r\\n**)
+* **\\t** - match a horizontal tab
+
+## Wildcard character match
+
+**.** - **gr.y** matches gray and grey, or any other character in the 3rd position
+
