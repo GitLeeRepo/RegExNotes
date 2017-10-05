@@ -86,6 +86,12 @@ although these don't match those words beginning/ending in punctuation rather th
 * **colou?r** matches both color and colour
 * **auto(mobile)?** - using optional groups of character we can match both "auto" and "automobile"
 
+# Force the matching of an entire word
+
+**test(ing|er|ed)?** - matches the entire word for "test", "testing", "tester", and "tested", but it will also make a partial match on "testee" since it matches "test" within "testee".  To force it to match only if it matches the whole word then do the following:
+
+**test(ing|er|ed)?\\b** - the **\\b** makes sure it only matches if the match ends on the word boundary at the end, therefore it will not make the partial match on "testee" 
+
 # Groups
 
 Allows operations on a group of characters
