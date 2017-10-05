@@ -8,3 +8,17 @@ Notes on using **Regular Expressions**, both in general, and language/tool speci
 
 # Basics
 
+## Special Characters
+
+* **\\** -
+* **^** -
+* **$** -
+* **.** -
+* **|** -
+* **?** -
+* **\*** -
+* **+** -
+* **(** -
+* **)** -
+* **\[** -
+* **{** -
