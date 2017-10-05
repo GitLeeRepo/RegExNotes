@@ -106,7 +106,7 @@ Allows operations on a group of characters
 
 Note that the above email example handle simple emails of the form "name@company.domain", but not "first.last@divison.company.domain".  They also allow partial matches, so in the case of "first.last@company.domain" it will match "last@company.domain" which is of course wrong and not the actual email address this.  To address these issues a more complicate version is needed:
 
-* **^\(\(\(\\w+\\.\)+\)?\\w+@\\w+\\.((\\w+\\.\)+\)?\(com|net|org\)\)$*
+* **^\(\(\(\\w+\\.\)+\)?\\w+@\\w+\\.((\\w+\\.\)+\)?\(com|net|org\)\)$**
 
 # Quantifiers
 
