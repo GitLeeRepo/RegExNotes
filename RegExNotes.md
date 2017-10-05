@@ -25,6 +25,10 @@ Note that since the following are special characters they must be escaped with a
 * **\[** - (open square bracket) begin character set
 * **\{** - (open curly bracket) quantifier
 
+## Expression Delimeters and global expression flag
+
+In many environments the regular expression must be contained within two forward slash (**/**) delimiters, e.g. **/findme/**.  For simplicity the examples here do not include these delimiters.  In addition, if you want the expression to match multiple occurrances you would include the **g** global flag after the last delimiter, e.g. **/findme/g**.  Again, for simplicity in these examples this is not shown.
+
 # Character Classes
 
 ## Sets of characters
@@ -56,8 +60,8 @@ Use square brackes **\[\]** to match one character from a choice of characters. 
 
 ## Wildcard character matches
 
-**.** - **gr.y** matches gray and grey, or any other character in the 3rd position
-**.+** - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all"
+* **.** - **gr.y** matches gray and grey, or any other character in the 3rd position
+* **.+** - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all"
 
 ## Match beginning and ending characters of a word
 
