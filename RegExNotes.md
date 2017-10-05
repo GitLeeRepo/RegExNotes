@@ -101,9 +101,12 @@ although these don't match those words beginning/ending in punctuation rather th
 Allows operations on a group of characters
 
 * **test\(ing|er|ed)?** matches "test", "testing", "tester", "tested".  The "?" says all these endings are optional
-* **\[A-Za-z0-9_\]+@\[A-Za-z0-9_\]+\.\(com|net|org\)** - match valid email address in com/net/org domains
+* **\[A-Za-z0-9_\]+@\[A-Za-z0-9_\]+\\.\(com|net|org\)** - match valid email address in com/net/org domains
+* **\\w+@\\w+\\.\(com|net|org\)** - same as email example above but using character class shortcuts insead
 
-Note the **+** (plus) matches one or more characters, causing it to apply to the entire segment of each part of the email address and not just the individual characters
+Note that the above email example handle simple emails of the form "name@company.domain", but not "first.last@divison.company.domain".  They also allow partial matches, so in the case of "first.last@company.domain" it will match "last@company.domain" which is of course wrong and not the actual email address this.  To address these issues a more complicate version is needed:
+
+* **^\(\(\(\\w+\\.\)+\)?\\w+@\\w+\\.((\\w+\\.\)+\)?\(com|net|org\)\)$*
 
 # Quantifiers
 
