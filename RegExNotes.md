@@ -40,7 +40,7 @@ Use square brackes **\[\]** to match one character from a choice of characters. 
 ## Character class shortcuts
 
 * **\\d** - match a digit 0-9
-* **\\w** - match a "word" character, an alphanumeric character plus the underscore
+* **\\w** - match a "word" character, an alphanumeric character plus the underscore.  Word boundaries are separated by whitespace.
 * **\\s** - match a whitespace (space or tab)
 
 ## Non-printable characters
@@ -52,4 +52,10 @@ Use square brackes **\[\]** to match one character from a choice of characters. 
 ## Wildcard character match
 
 **.** - **gr.y** matches gray and grey, or any other character in the 3rd position
+
+## Match start and end of strings
+
+* **^** - **^T** matches "This is a test" since "T" is at the start, but **^t** won't match since the "t" in "test" is not at the start
+* **$** - **$t** matches "This is a test" since the string ends with a "t"
+
 
