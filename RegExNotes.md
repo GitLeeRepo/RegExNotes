@@ -12,18 +12,18 @@ Notes on using **Regular Expressions**, both in general, and language/tool speci
 
 Note that since the following are special characters they must be escaped with a backslash if you want them to be part of the search criteria.
 
-* **\\** -
+* **\\** - (backslah) escape characters
 * **^** - (carret) match occurances at the beginning of a string
 * **$** - (dollar) match occurances at the end of a string
 * **.** - (period) matches almost any character except line breaks
-* **|** -
+* **|** - (pipe) provide conditional "or"
 * **?** - (question) the proceeding character is optional
-* **\*** -
-* **+** -
-* **\(** -
-* **\)** -
-* **\[** -
-* **\{** -
+* **\*** - (astricks) select zero or more characters
+* **+** - (plus) select one or more characters
+* **\(** - (open parenthesis) Begin group
+* **\)** - (close parenthesis) End group
+* **\[** - (open square bracket) begin character set
+* **\{** - (open curly bracket) quantifier
 
 # Character Classes
 
@@ -35,6 +35,7 @@ Use square brackes **\[\]** to match one character from a choice of characters. 
 * **\[3-8\]** - matches a single digit between 3 and 8.
 * **\[a-z\]** - match all lowercase letters
 * **\[A-Z\]** - match all uppercase letters
+* **\[A-Za-z\]** - match all letters
 * **\[A-Z0-9\]** - match all uppercase letters and all single digits
 
 ## Character class shortcuts
@@ -71,7 +72,6 @@ Note the similarity to
 
 although these don't match those words beginning/ending in punctuation rather than white space, it is also matching two adjacent characters (the word character and the whitespace) rather than just the single character as in the **\\b** examples above.
 
-
 # Match start and end of strings
 
 * **^** - **^This** matches in "This is a test" since "This" is at the start of the string.
@@ -79,4 +79,24 @@ although these don't match those words beginning/ending in punctuation rather th
 * **$** - **test$** matches "This is a test" since the string ends with "test"
 * Combined - **^Hi there$** matches the entire 'Hi there" string since it begins with "Hi" and ends with "there"
 
+# Match an entire word with optional characters (ex plural vs non-plural forms)
+
+* **apples?** matches both apple and apples since the "s" is optional
+* **colou?r** matches both color and colour
+* **auto(mobile)?** - using optional groups of character we can match both "auto" and "automobile"
+
+# Groups
+
+Allows operations on a group of characters
+
+* **test\(ing|er|ed)?** matches "test", "testing", "tester", "tested".  The "?" says all these endings are optional
+* **\[A-Za-z0-9_\]+@\[A-Za-z0-9_\]+\.\(com|net|org\)** - match valid email address in com/net/org domains
+
+Note the **+** (plus) matches one or more characters, causing it to apply to the entire segment of each part of the email address and not just the individual characters
+
+# Quantifiers
+
+* **+** - match one or more characters following the matched token.  **B\w+** matches "Bob", "Bonny" and "Bill", but not "B"
+* **\*** - match zero or more characters following the matched token.  **B\w*** matches "Bob", "Bonny" and "Bill", and also matches "B"
+* **\{\}** - match **\{3,4\}** if there are 3 to 4 characters in the word following the matched token.  **B\\w\{3,4\}** matches "Bill", "Bonny" and "Bobby", but doesn't match "Bob" since he only has two characters following the matched "B".
 
