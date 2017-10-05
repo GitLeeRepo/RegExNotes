@@ -57,6 +57,7 @@ Use square brackes **\[\]** to match one character from a choice of characters. 
 ## Wildcard character matches
 
 **.** - **gr.y** matches gray and grey, or any other character in the 3rd position
+**.+** - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all"
 
 ## Match beginning and ending characters of a word
 
