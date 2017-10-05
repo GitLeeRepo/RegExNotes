@@ -55,7 +55,9 @@ Use square brackes **\[\]** to match one character from a choice of characters. 
 
 ## Match start and end of strings
 
-* **^** - **^T** matches "This is a test" since "T" is at the start, but **^t** won't match since the "t" in "test" is not at the start
-* **$** - **$t** matches "This is a test" since the string ends with a "t"
+* **^** - **^This** matches in "This is a test" since "This" is at the start of the string.
+* **^** - **^test** does not match in "This is a test" since "test" is NOT at the start of the string.
+* **$** - **test$** matches "This is a test" since the string ends with "test"
+* Combined - **^Hi there$** matches the entire 'Hi there" string since it begins with "Hi" and ends with "there"
 
 
