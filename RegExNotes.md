@@ -114,3 +114,39 @@ Note that the above email example handle simple emails of the form "name@company
 * **\*** - match zero or more characters following the matched token.  **B\w*** matches "Bob", "Bonny" and "Bill", and also matches "B"
 * **\{\}** - match **\{3,4\}** if there are 3 to 4 characters in the word following the matched token.  **B\\w\{3,4\}** matches "Bill", "Bonny" and "Bobby", but doesn't match "Bob" since he only has two characters following the matched "B".
 
+# Application Support
+
+## Unix/Linux commands
+
+### grep
+
+Note that many of the regular expressions using the syntax in these notes do not work in **grep** by default.  However, by providing the **-P** for Perl arguement they do work (from a handful of examples I tried).  For example:
+
+```bash
+grep -P '^## S(et|how) email$' GitCommandNotes.md
+```
+
+returns
+
+```
+## Set email
+## Show email
+```
+
+While without the **-P** it returns nothing, and:
+
+```bash
+grep -P '^##?.+email$' GitCommandNotes.md
+```
+
+returns:
+
+```
+# Config global user and email
+## Set email
+## Show email
+```
+
+While again, without the **-P** it returns nothing
+
+
