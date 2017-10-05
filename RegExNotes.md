@@ -69,7 +69,7 @@ Note the similarity to
 * **\\se** - match all "e" characters the beginning of a word that are proceeded by a whitespace (the white space is included in the match)
 * **e\\s** - match all "e" characters at the end of a word followed by a whitespace which is also included in the match
 
-but these don't match those words ending in punctuation rather than white space, it is also matching two adjacent characters (the word character and the whitespace)
+although these don't match those words beginning/ending in punctuation rather than white space, it is also matching two adjacent characters (the word character and the whitespace) rather than just the single character as in the **\\b** examples above.
 
 
 # Match start and end of strings
