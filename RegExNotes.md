@@ -140,6 +140,8 @@ As mentioned  captured groups can be used for extracting substrings or back refe
 Back references can be use to reference captured groups within the search itself which is useful for repeating patterns
 
 * **B\(ill\) \(is\) \\1 and needs a p\\1 th\\2 morning** - uses **\\1** to reference the first **\(ill\)**  group and **\\2** to reference the second **\(is\)** group to match the entire string "Bill is ill and needs a pill this morning"
+* **<\(\w+\)\(.+\)?>.+<\\/\\1>** - can be used to match opening and closing HTML/XML tags.  This will match "<h1 id="3">My Heading</h1>", "<div>My Div...</div>", and "<form method="POST"><input type="text"></form>"
+
 
 
 ## Language and environment support
