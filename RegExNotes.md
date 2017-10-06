@@ -42,7 +42,7 @@ Use square brackes **\[\]** to match one character from a choice of characters. 
 * **\[A-Za-z\]** - match all letters
 * **\[A-Z0-9\]** - match all uppercase letters and all single digits
 
-**Negation**
+### Negation
 
 Uses the carret symbol (**^**) within a character set to indicate anything but this set
 
