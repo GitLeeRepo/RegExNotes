@@ -58,6 +58,8 @@ Uses the carret symbol (**^**) within a character set to indicate anything but t
 * **\\W** - match if NOT a "word" character, an alphanumeric character plus the underscore.
 * **\\S** - match if NOT a whitespace (space or tab)
 * **\\s\\S** - match any character (matches whitespace or not whitespace, i.e. everything)
+* **\\b** - match a word boundary, either before a word or after a word
+* **\\B** - match if NOT a word boundary
 
 ## Non-printable characters
 
@@ -71,6 +73,12 @@ Uses the carret symbol (**^**) within a character set to indicate anything but t
 * **.+** - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all"
 
 ## Match beginning and ending characters of a word
+
+While the carret \(**^**\) and dollar sign \(**$**\) match the beginning of a string, it is often desireable to match the beginning or ending of words within the string. Where supported you can use the character class shortcuts **\\<** to match the beginning of a word and **\\>** to match the end of a word.
+
+* **\\<book** - will match "book" in "This textbook is a good book", but not the "book" in "textbook"
+* **cat\\>** - will match "cat" in "In the cat category", but not the "cat" in "category"
+* **\\<date\\>** - will match "date" in "In the latest update the date format was still dated" but not the "date" in "update" or "dated"
 
 By combining a character match with the **\\b** word boundary you can match the beginning and ending characters of a word
 
