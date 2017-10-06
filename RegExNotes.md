@@ -135,12 +135,22 @@ To prevent a group from being captured use **?:** immediately inside the group(s
 
 As mentioned  captured groups can be used for extracting substrings or back references.  Use non-captured groups (with the **?:**) when you are only interested in grouping and not extracting substrings.
 
+## Back references
+
+Back references can be use to reference captured groups within the search itself which is useful for repeating patterns
+
+* **B\(ill\) \(is\) \\1 and needs a p\\1 th\\2 morning** - uses **\\1** to reference the first **\(ill\)**  group and **\\2** to reference the second **\(is\)** group to match the entire string "Bill is ill and needs a pill this morning"
+
+
 ## Language and environment support
 
-As mention, the [Interactive Tester](https://regexr.com/) uses the **$#** format to identify the capture group.  This is also used in Perl
+As mention, the [Interactive Tester](https://regexr.com/) uses the **$#** format to identify the capture group.  This is also used in Perl, vi, sed & awk.
 
 In JavaScript these captured groups are returned as part of the result array returned from the str.match(regExp) method.  The first (index zero) contains the entired matched result while indexes 1 through n contain the captured groups.  Other environments such as vi, sed and awk use **/#** after the expression to indicate which capture group number you want.
 
+Python, Java, and C# use object notation (matchObj.Groups(#) in Java and C#) and matchObj.group(#) in Plython.
+
+## Named capture groups
 
 Depending on the environment you can have up to 99 capture groups, included **named capture groups** specified by **?<name>** in the group being named.
 
