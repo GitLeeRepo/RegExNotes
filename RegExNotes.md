@@ -13,7 +13,7 @@ Notes on using **Regular Expressions**, both in general, and language/tool speci
 Note that since the following are special characters they must be escaped with a backslash if you want them to be part of the search criteria.
 
 * **\\** - (backslah) escape characters
-* **^** - (carret) match occurances at the beginning of a string
+* **^** - (carret) match occurances at the beginning of a string, or for negation when in a character set **\(\[\]\)**
 * **$** - (dollar) match occurances at the end of a string
 * **.** - (period) matches almost any character except line breaks
 * **|** - (pipe) provide conditional "or"
@@ -41,6 +41,13 @@ Use square brackes **\[\]** to match one character from a choice of characters. 
 * **\[A-Z\]** - match all uppercase letters
 * **\[A-Za-z\]** - match all letters
 * **\[A-Z0-9\]** - match all uppercase letters and all single digits
+
+**Negation**
+
+Uses the carret symbol (**^**) within a character set to indicate anything but this set
+
+* **\[^A-Z\]** - Match any character that is NOT a captial letter
+* **\[^a-zA-Z\\.\]** - Match any character that is NOT a letter or a period
 
 ## Character class shortcuts
 
