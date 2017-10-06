@@ -116,6 +116,8 @@ To prevent a group from being captured use **?:** immediately inside the group(s
 
 In JavaScript these captured groups are returned as part of the result array returned from the str.match(regExp) method.  The first (index zero) contains the entired matched result while indexes 1 through n contain the captured groups.
 
+Captured groups can be used for extracting substrings from within the original result, or for creating back references.  Use non-captured groups (with the **?:**) when you are only interested in grouping and not extracting substrings.
+
 # Quantifiers
 
 * **+** - match one or more characters following the matched token.  **B\w+** matches "Bob", "Bonny" and "Bill", but not "B"
