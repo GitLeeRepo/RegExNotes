@@ -114,9 +114,11 @@ Whenever you enclose a portion of the expression in parenthesis, by default you 
 
 To prevent a group from being captured use **?:** immediately inside the group(s) you want to make non-capturing and they will be excluded.  So making two of the groups non-capturing in the prior expression now looks like **^\(\(?:\(\\w+\\.\)+\)?\\w+@\\w+\\.(?:(\\w+\\.\)+\)?\(com|net|org\)\)$**.  Now the the **\(com|net|org\)** capture group is $4 rather than $6.
 
-In JavaScript these captured groups are returned as part of the result array returned from the str.match(regExp) method.  The first (index zero) contains the entired matched result while indexes 1 through n contain the captured groups.
+In JavaScript these captured groups are returned as part of the result array returned from the str.match(regExp) method.  The first (index zero) contains the entired matched result while indexes 1 through n contain the captured groups.  Other environments such as vi, sed and awk use **/#** after the expression to indicate which capture group number you want.
 
 Captured groups can be used for extracting substrings from within the original result, or for creating back references.  Use non-captured groups (with the **?:**) when you are only interested in grouping and not extracting substrings.
+
+Depending on the environment you can have up to 99 capture groups, included **named capture groups** specified by **?<name>** in the group being named.
 
 # Quantifiers
 
