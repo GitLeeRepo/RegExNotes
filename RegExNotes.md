@@ -108,6 +108,14 @@ Note that the above email example handle simple emails of the form "name@company
 
 * **^\(\(\(\\w+\\.\)+\)?\\w+@\\w+\\.((\\w+\\.\)+\)?\(com|net|org\)\)$**
 
+## Capturing vs Non-Capturing groups
+
+Whenever you enclose a portion of the expression in parenthesis, by default you create a captured group that is part of the result.  In the [Interactive Tester](https://regexr.com/) app you access each capture group by $# where # is the group number from left to right, outer to inner.  The **^\(\(\(\\w+\\.\)+\)?\\w+@\\w+\\.((\\w+\\.\)+\)?\(com|net|org\)\)$** expression has 6 groups (just count the left parenthesis), with $6 containing the **\(com|net|org\)** capture group.
+
+To prevent a group from being captured use **?:** immediately inside the group(s) you want to make non-capturing and they will be excluded.  So making two of the groups non-capturing in the prior expression now looks like **^\(\(?:\(\\w+\\.\)+\)?\\w+@\\w+\\.(?:(\\w+\\.\)+\)?\(com|net|org\)\)$**.  Now the the **\(com|net|org\)** capture group is $4 rather than $6.
+
+In JavaScript these captured groups are returned as part of the result array returned from the str.match(regExp) method.  The first (index zero) contains the entired matched result while indexes 1 through n contain the captured groups.
+
 # Quantifiers
 
 * **+** - match one or more characters following the matched token.  **B\w+** matches "Bob", "Bonny" and "Bill", but not "B"
