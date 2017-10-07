@@ -72,48 +72,38 @@ Uses the carret symbol (**^**) within a character set to indicate anything but t
 * **.** - **gr.y** matches gray and grey, or any other character in the 3rd position
 * **.+** - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all"
 
-## Match beginning and ending characters of a word
-
-While the carret \(**^**\) and dollar sign \(**$**\) match the beginning of a string, it is often desireable to match the beginning or ending of words within the string. Where supported you can use the character class shortcuts **\\<** to match the beginning of a word and **\\>** to match the end of a word.
-
-* **\\<book** - will match "book" in "This textbook is a good book", but not the "book" in "textbook"
-* **cat\\>** - will match "cat" in "In the cat category", but not the "cat" in "category"
-* **\\<date\\>** - will match "date" in "In the latest update the date format was still dated" but not the "date" in "update" or "dated"
-
-By combining a character match with the **\\b** word boundary you can match the beginning and ending characters of a word
-
-* **\\be** - match all "e" characters at the beginning of a word
-* **e\\b** - match all "e" characters at the end of a word
-
-Note the similarity to
-
-* **\\se** - match all "e" characters the beginning of a word that are proceeded by a whitespace (the white space is included in the match)
-* **e\\s** - match all "e" characters at the end of a word followed by a whitespace which is also included in the match
-
-although these don't match those words beginning/ending in punctuation rather than white space, it is also matching two adjacent characters (the word character and the whitespace) rather than just the single character as in the **\\b** examples above.
-
-# Match start and end of strings
+## Match start and end of strings
 
 * **^** - **^This** matches in "This is a test" since "This" is at the start of the string.
 * **^** - **^test** does not match in "This is a test" since "test" is NOT at the start of the string.
 * **$** - **test$** matches "This is a test" since the string ends with "test"
 * Combined - **^Hi there$** matches the entire 'Hi there" string since it begins with "Hi" and ends with "there"
 
-# Match an entire word with optional characters (ex plural vs non-plural forms)
+## Match beginning and ending characters of a word
+
+While the carret \(**^**\) and dollar sign **$** match the beginning of a string, it is often desireable to match the beginning or ending of words within the string. Where supported you can use the character class shortcuts **\\<** to match the beginning of a word and **\\>** to match the end of a word. Or use **\\b** which seems to be more widely supported.  For example, **grep** supports both **\b** and **\\< \\>** in default mode, but only the **\\b** notation in **-P** Perl mode.
+
+Where supported:
+
+* **\\<book** - will match "book" in "This textbook is a good book", but not the "book" in "textbook"
+* **cat\\>** - will match "cat" in "In the cat and bobcat category", "cat" in "bobcat", but not the "cat" in "category"
+* **\\<date\\>** - will match "date" in "In the latest update the date format was still dated" but not the "date" in "update" or "dated"
+
+For wider support combining a character match with the **\\b** word boundary you can match the beginning and ending characters of a word
+
+* **\\book** - as above matches "book" but not "textbook"
+* **cat\\b** - as above matches "cat", but not "category", it would match the "cat" "bobcat" though
+* **\\bdate\\b** - as above matches "date", but not "update" or "dated"
+
+## Match an entire word with optional characters (ex plural vs non-plural forms)
 
 * **apples?** matches both apple and apples since the "s" is optional
 * **colou?r** matches both color and colour
 * **auto(mobile)?** - using optional groups of character we can match both "auto" and "automobile"
 
-# Force the matching of an entire word
-
-**test(ing|er|ed)?** - matches the entire word for "test", "testing", "tester", and "tested", but it will also make a partial match on "testee" since it matches "test" within "testee".  To force it to match only if it matches the whole word then do the following:
-
-**test(ing|er|ed)?\\b** - the **\\b** makes sure it only matches if the match ends on the word boundary at the end, therefore it will not make the partial match on "testee" 
-
 # Groups
 
-Allows operations on a group of characters
+Allows operations on a group of characters, for example matching multiple forms of a word
 
 * **test\(ing|er|ed)?** matches "test", "testing", "tester", "tested".  The "?" says all these endings are optional
 * **\[A-Za-z0-9_\]+@\[A-Za-z0-9_\]+\\.\(com|net|org\)** - match valid email address in com/net/org domains
@@ -140,9 +130,7 @@ As mentioned  captured groups can be used for extracting substrings or back refe
 Back references can be use to reference captured groups within the search itself which is useful for repeating patterns
 
 * **B\(ill\) \(is\) \\1 and needs a p\\1 th\\2 morning** - uses **\\1** to reference the first **\(ill\)**  group and **\\2** to reference the second **\(is\)** group to match the entire string "Bill is ill and needs a pill this morning"
-* **<\(\w+\)\(.+\)?>.+<\\/\\1>** - can be used to match opening and closing HTML/XML tags.  This will match `<h1 id="3">My Heading</h1>`, `<div>My Div...</div>`, and `<form method="POST"><input type="text"></form>`
-
-
+* **<\(\w+\)\(.+\)?>.+<\\/\\1>** - can be used to match opening and closing HTML/XML tags.  This will match `<h1 id="3">My Heading</h1>`, `<div>My Div...</div>`, and `<form method="POST"><input type="text"></form>`.  This is useful here since placing a **\\w+** on the end instead of the **\\1** would match any closing tag, not just the matching tag at the beginning.
 
 ## Language and environment support
 
