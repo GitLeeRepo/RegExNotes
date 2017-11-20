@@ -69,8 +69,8 @@ Uses the carret symbol (**^**) within a character set to indicate anything but t
 
 ## Wildcard character matches
 
-* **.** - (period) **gr.y** matches gray and grey, or any other character in the 3rd position
-* **.+** - (period plus) **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all"
+* **.** (period) - **gr.y** matches gray and grey, or any other character in the 3rd position
+* **.+** (period plus) - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all"
 
 ## Match start and end of strings
 
