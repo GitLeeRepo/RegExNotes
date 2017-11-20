@@ -74,9 +74,9 @@ Uses the carret symbol (**^**) within a character set to indicate anything but t
 
 ## Match start and end of strings
 
-* **^** - (caret) **^This** matches in "This is a test" since "This" is at the start of the string.
-* **^** - (caret) **^test** does not match in "This is a test" since "test" is NOT at the start of the string.
-* **$** - (dollar) **test$** matches "This is a test" since the string ends with "test"
+* **^** (caret) - **^This** matches in "This is a test" since "This" is at the start of the string.
+* **^** (caret) - **^test** does not match in "This is a test" since "test" is NOT at the start of the string.
+* **$** (dollar) - **test$** matches "This is a test" since the string ends with "test"
 * Combined - **^Hi there$** matches the entire 'Hi there" string since it begins with "Hi" and ends with "there"
 
 ## Match beginning and ending characters of a word
