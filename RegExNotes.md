@@ -12,18 +12,18 @@ Notes on using **Regular Expressions**, both in general, and language/tool speci
 
 Note that since the following are special characters they must be escaped with a backslash if you want them to be part of the search criteria.
 
-* **\\** - (backslah) escape characters
-* **^** - (carret) match occurances at the beginning of a string, or for negation when in a character set **\(\[\]\)**
-* **$** - (dollar) match occurances at the end of a string
-* **.** - (period) matches almost any character except line breaks
-* **|** - (pipe) provide conditional "or"
-* **?** - (question) the proceeding character is optional
-* **\*** - (astricks) select zero or more characters
-* **+** - (plus) select one or more characters
-* **\(** - (open parenthesis) Begin group
-* **\)** - (close parenthesis) End group
-* **\[** - (open square bracket) begin character set
-* **\{** - (open curly bracket) quantifier
+* **\\** (backslah) - escape characters
+* **^** (carret) - match occurances at the beginning of a string, or for negation when in a character set **\(\[\]\)**
+* **$** (dollar) - match occurances at the end of a string
+* **.** (period) - matches almost any character except line breaks
+* **|** (pipe) - provide conditional "or"
+* **?** (question) - the proceeding character is optional
+* **\*** (astricks) - select zero or more characters
+* **+** (plus) - select one or more characters
+* **\(** (open parenthesis) - Begin group
+* **\)** (close parenthesis) - End group
+* **\[** (open square bracket) - begin character set
+* **\{** (open curly bracket) - quantifier
 
 ## Expression Delimeters and global expression flag
 
