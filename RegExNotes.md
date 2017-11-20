@@ -69,14 +69,14 @@ Uses the carret symbol (**^**) within a character set to indicate anything but t
 
 ## Wildcard character matches
 
-* **.** - **gr.y** matches gray and grey, or any other character in the 3rd position
-* **.+** - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all"
+* **.** - (period) **gr.y** matches gray and grey, or any other character in the 3rd position
+* **.+** - (period plus)**begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all"
 
 ## Match start and end of strings
 
-* **^** - **^This** matches in "This is a test" since "This" is at the start of the string.
-* **^** - **^test** does not match in "This is a test" since "test" is NOT at the start of the string.
-* **$** - **test$** matches "This is a test" since the string ends with "test"
+* **^** - (caret) **^This** matches in "This is a test" since "This" is at the start of the string.
+* **^** - (caret) **^test** does not match in "This is a test" since "test" is NOT at the start of the string.
+* **$** - (dollar) **test$** matches "This is a test" since the string ends with "test"
 * Combined - **^Hi there$** matches the entire 'Hi there" string since it begins with "Hi" and ends with "there"
 
 ## Match beginning and ending characters of a word
