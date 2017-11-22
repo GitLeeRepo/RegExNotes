@@ -62,6 +62,7 @@ Uses the carret symbol (**^**) within a character set to indicate anything but t
 
 * **\\d** - match a digit 0-9
 * **\\w** - match a "word" character, an alphanumeric character plus the underscore.  Word boundaries are separated by whitespace.
+* **\\w+** - match an entire "word", not just a character.  Word boundaries are separated by whitespace.
 * **\\s** - match a whitespace (space or tab)
 * **\\D** - match if NOT a digit 0-9
 * **\\W** - match if NOT a "word" character, an alphanumeric character plus the underscore.
@@ -92,7 +93,7 @@ Uses the carret symbol (**^**) within a character set to indicate anything but t
 
 While the carret \(**^**\) and dollar sign **$** match the beginning of a string, it is often desireable to match the beginning or ending of words within the string. Where supported you can use the character class shortcuts **\\<** to match the beginning of a word and **\\>** to match the end of a word. Or use **\\b** which seems to be more widely supported.  For example, **grep** supports both **\b** and **\\< \\>** in default mode, but only the **\\b** notation in **-P** Perl mode.
 
-Where supported:
+Using **\<** and **\>** where supported (you're generally better of using **\\b**):
 
 * **\\<book** - will match "book" in "This textbook is a good book", but not the "book" in "textbook"
 * **cat\\>** - will match "cat" in "In the cat and bobcat category", "cat" in "bobcat", but not the "cat" in "category"
@@ -100,7 +101,7 @@ Where supported:
 
 For wider support combining a character match with the **\\b** word boundary you can match the beginning and ending characters of a word
 
-* **\\book** - as above matches "book" but not "textbook"
+* **\\bbook** - as above matches "book" but not "textbook"
 * **cat\\b** - as above matches "cat", but not "category", it would match the "cat" "bobcat" though
 * **\\bdate\\b** - as above matches "date", but not "update" or "dated"
 
