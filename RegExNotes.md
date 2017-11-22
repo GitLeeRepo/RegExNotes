@@ -24,12 +24,15 @@ Note that since the following are special characters they must be escaped with a
 * **.** (period) - matches almost any character except line breaks
 * **|** (pipe) - provide conditional "or"
 * **?** (question) - the proceeding character is optional
-* **\*** (astricks) - select zero or more characters
-* **+** (plus) - select one or more characters
+* **\*** (astericks) - select **zero or more** of the **preceeding** character
+* **+** (plus) - select **one or more** of the **preceeding** character
+* **.\*** (period asterisk) - match zero or more of any character, equivellent to shell's **\*** asterisk by itself
 * **\(** (open parenthesis) - Begin group
 * **\)** (close parenthesis) - End group
 * **\[** (open square bracket) - begin character set
 * **\{** (open curly bracket) - quantifier
+
+Note the wildcard **\*** (asterisk) behaves differently in a regular expression than it does in the shell.  It matches the **previous** character, it is not saying match any **following** character.  You can use a combination of the period and asterisk **.\*** to behave equivellently to the shell's asterisk, since the period is any one character and the asterisk says match zero or more of that one wildcard character.
 
 ## Expression Delimeters and global expression flag
 
