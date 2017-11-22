@@ -79,7 +79,7 @@ Uses the carret symbol (**^**) within a character set to indicate anything but t
 ## Wildcard character matches
 
 * **.** (period) - **gr.y** matches gray and grey, or any other character in the 3rd position
-* **.+** (period plus) - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all"
+* **.+** (period plus) or **.\*** (period asterisk) - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all".  Either the plus or asterisk will work in this case and is equivellent to the asterisk by itself in shell commands.  The difference is that the plus match **one or more** characters and the asterisk is **zero or more**, which when the preceeding character is not a wildcard the difference will have more of an impact, but in this case since the proceeding character is the wildcard period they function equivellently here.
 
 ## Match start and end of strings
 
