@@ -80,7 +80,8 @@ Uses the carret symbol (**^**) within a character set to indicate anything but t
 ## Wildcard character matches
 
 * **.** (period) - **gr.y** matches gray and grey, or any other character in the 3rd position
-* **.+** (period plus) or **.\*** (period asterisk) - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all".  Either the plus or asterisk will work in this case and is equivellent to the asterisk by itself in shell commands.  The difference is that the plus match **one or more** characters and the asterisk is **zero or more**, which when the preceeding character is not a wildcard the difference will have more of an impact, but in this case since the proceeding character is the wildcard period they function equivellently here.
+* **.+** (period plus) - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all".  Either the plus or asterisk will work in this case and is equivellent to the asterisk by itself in shell commands.  The difference is that the plus match **one or more** characters and the asterisk is **zero or more**, which when the preceeding character is not a wildcard the difference will have more of an impact, but in this case since the proceeding character is the wildcard period they function equivellently here.
+* **.\*** (period asterisk)
 
 ## Match start and end of strings
 
@@ -194,5 +195,13 @@ returns:
 ```
 
 While again, without the **-P** it returns nothing
+
+# sed and awk
+
+## Where sed and awk regular expression differ from each other
+
+* **^** (caret) - **sed** will match the beginning of the line, **awk** will match the beginning of the string that may contain one or more newlines.
+* **$** (dollar) - **sed** will match the end of the line, **awk** will match the end of the string that may contain one or more newlines.
+* **.** (period) - **sed** will match any character except the new line, **awk** will also match the new line
 
 
