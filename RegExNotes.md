@@ -179,6 +179,7 @@ Useful for testing when a word is NOT included in a line
 # but exclude those in the /book subfolder
 find . -name *.c | grep -P '^(?!.*\/book).*$'
 ```
+Note that the **-P** (Perl Style) was needed to evaluate this correctly with grep
 
 ## Lookbehind
 
