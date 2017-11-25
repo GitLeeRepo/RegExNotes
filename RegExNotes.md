@@ -175,7 +175,8 @@ Useful for testing when a word is NOT included in a line
 ### Example using grep and find
 
 ```bash
-# find the name of all \*.c files in the current directory and its subdirectories, but exclude those in the /book subfolder
+# find the name of all \*.c files in the current directory and its subdirectories, 
+# but exclude those in the /book subfolder
 find . -name *.c | grep -P '^(?!.*\/book).*$'
 ```
 
