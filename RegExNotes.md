@@ -165,8 +165,8 @@ Type                | Expression | Example (muli-line scenarios)
 --------------------|------------|------------------------------------------------------------------------------------------
 Positive Lookahead  | (?=...)    | ^(?=.\*begin\b).\*$ - matches any line having word begin, but won't match begginning
 Negative Lookahead  | (?!...)    | ^(?!.\*begin\b).\*$ - matches any line NOT having word begin, it will match begginning
-Positive Lookbehind | (?=...)    | tbd
-Negative Lookbehind | (?!...)    | tbd
+Positive Lookbehind | (?\<=...)    | tbd
+Negative Lookbehind | (?\<!...)    | tbd
 
 ## Lookahead
 
@@ -180,6 +180,8 @@ find . -name *.c | grep -P '^(?!.*\/book).*$'
 ```
 
 ## Lookbehind
+
+tbd
 
 # Quantifiers
 
