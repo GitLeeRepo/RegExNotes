@@ -154,6 +154,32 @@ Python, Java, and C# use object notation (matchObj.Groups(#) in Java and C#) and
 ## Named capture groups
 
 Depending on the environment you can have up to 99 capture groups, included **named capture groups** specified by **?<name>** in the group being named.
+  
+# Lookaround
+
+A lookaround makes an assertion (that which is in the parenthesis), if that assertion is true then the remainder of the expression is evaluated.  Positive assertions use **?=** and negative assertions use **?!** to indicate the condition.
+
+Four Types of Lookaround
+
+Type                | Expression | Example (muli-line scenarios)
+--------------------|------------|------------------------------------------------------------------------------------------
+Positive Lookahead  | (?=...)    | ^(?=.\*begin\b).\*$ - matches any line having word begin, but won't match begginning
+Negative Lookahead  | (?!...)    | ^(?!.\*begin\b).\*$ - matches any line NOT having word begin, it will match begginning
+Positive Lookbehind | (?=...)    | tbd
+Negative Lookbehind | (?!...)    | tbd
+
+## Lookahead
+
+Useful for testing when a word is NOT included in a line
+
+### Example using grep and find
+
+```bash
+# find the name of all \*.c files in the current directory and its subdirectories, but exclude those in the /book subfolder
+find . -name *.c | grep -P '^(?!.*\/book).*$'
+```
+
+## Lookbehind
 
 # Quantifiers
 
