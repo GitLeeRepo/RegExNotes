@@ -232,12 +232,8 @@ returns:
 
 While again, without the **-P** it returns nothing
 
-# sed and awk
+# Differences Betweeen sed, awk, and grep Regular Expressions
 
-## Where sed and awk regular expression differ from each other
-
-* **^** (caret) - **sed** will match the beginning of the line, **awk** will match the beginning of the string that may contain one or more newlines.
-* **$** (dollar) - **sed** will match the end of the line, **awk** will match the end of the string that may contain one or more newlines.
-* **.** (period) - **sed** will match any character except the new line, **awk** will also match the new line
+Refer to the separate document [DifferencesSedAwkGrep](https://github.com/GitLeeRepo/SedAwkAndGrepNotes/blob/master/DifferencesSedAwkGrep.md#overview)
 
 
