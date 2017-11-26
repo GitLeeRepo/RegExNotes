@@ -181,7 +181,11 @@ find . -name *.c | grep -P '^(?!.*\/book).*$'
 ```
 Note that the **-P** (Perl Style) was needed to evaluate this correctly with grep
 
-Note: another way to accomplish this that doesn't use a lookahead that is perhaps easier to understand, is to use **sed** instead of **grep** to delete those lines that contain '\book', **find . -name \*.c | sed '/\\/book/d'**
+Note: another way to accomplish this that doesn't use a lookahead that is perhaps easier to understand, is to use **sed** instead of **grep** to delete those lines that contain '\book':
+
+```bash
+find . -name *.c | sed '/\/book/d'
+```
 
 ## Lookbehind
 
