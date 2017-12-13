@@ -18,9 +18,9 @@ Notes on using **Regular Expressions**, both in general, and language/tool speci
 
 Note that since the following are special characters they must be escaped with a backslash if you want them to be part of the search criteria.
 
-* **\\** (backslah) - escape characters
-* **^** (carret) - match occurances at the beginning of a string, or for negation when in a character set **\(\[\]\)**
-* **$** (dollar) - match occurances at the end of a string
+* **\\** (backslash) - escape characters
+* **^** (caret) - match occurrences at the beginning of a string, or for negation when in a character set **\(\[\]\)**
+* **$** (dollar) - match occurrences at the end of a string
 * **.** (period) - matches almost any character except line breaks
 * **|** (pipe) - provide conditional "or"
 * **?** (question) - the proceeding character is optional
@@ -34,7 +34,7 @@ Note that since the following are special characters they must be escaped with a
 
 Note the wildcard **\*** (asterisk) behaves differently in a regular expression than it does in the shell.  It matches the **previous** character, it is not saying match any **following** character.  You can use a combination of the period and asterisk **.\*** to behave equivellently to the shell's asterisk, since the period is any one character and the asterisk says match zero or more of that one wildcard character.
 
-## Expression Delimeters and global expression flag
+## Expression Delimiters and global expression flag
 
 In many environments the regular expression must be contained within two forward slash (**/**) delimiters, e.g. **/findme/**.  For simplicity the examples here do not include these delimiters.  In addition, if you want the expression to match multiple occurrances you would include the **g** global flag after the last delimiter, e.g. **/findme/g**.  Again, for simplicity in these examples this is not shown.
 
@@ -80,7 +80,7 @@ Uses the carret symbol (**^**) within a character set to indicate anything but t
 ## Wildcard character matches
 
 * **.** (period) - **gr.y** matches gray and grey, or any other character in the 3rd position
-* **.+** (period plus) - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all".  Either the plus or asterisk will work in this case and is equivellent to the asterisk by itself in shell commands.  The difference is that the plus match **one or more** characters and the asterisk is **zero or more**, which when the preceeding character is not a wildcard the difference will have more of an impact, but in this case since the proceeding character is the wildcard period they function equivellently here.
+* **.+** (period plus) - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all".  Either the plus or asterisk will work in this case and is equivalent to the asterisk by itself in shell commands.  The difference is that the plus match **one or more** characters and the asterisk is **zero or more**, which when the proceeding character is not a wildcard the difference will have more of an impact, but in this case since the proceeding character is the wildcard period they function equivalently here.
 * **.\*** (period asterisk)
 
 ## Match start and end of strings
@@ -163,8 +163,8 @@ Four Types of Lookaround
 
 Type                | Expression | Example (muli-line scenarios)
 --------------------|------------|------------------------------------------------------------------------------------------
-Positive Lookahead  | (?=...)    | ^(?=.\*begin\b).\*$ - matches any line having word begin, but won't match begginning
-Negative Lookahead  | (?!...)    | ^(?!.\*begin\b).\*$ - matches any line NOT having word begin, it will match begginning
+Positive Lookahead  | (?=...)    | ^(?=.\*begin\b).\*$ - matches any line having word begin, but won't match beginning
+Negative Lookahead  | (?!...)    | ^(?!.\*begin\b).\*$ - matches any line NOT having word begin, it will match beginning
 Positive Lookbehind | (?\<=...)    | tbd
 Negative Lookbehind | (?\<!...)    | tbd
 
@@ -232,7 +232,7 @@ returns:
 
 While again, without the **-P** it returns nothing
 
-# Differences Betweeen sed, awk, and grep Regular Expressions
+# Differences Between sed, awk, and grep Regular Expressions
 
 Refer to the separate document [DifferencesSedAwkGrep](https://github.com/GitLeeRepo/SedAwkAndGrepNotes/blob/master/DifferencesSedAwkGrep.md#overview)
 
