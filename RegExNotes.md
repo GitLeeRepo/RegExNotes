@@ -23,7 +23,7 @@ Note that since the following are special characters they must be escaped with a
 * **$** (dollar) - match occurrences at the end of a string
 * **.** (period) - matches almost any character except line breaks
 * **|** (pipe) - provide conditional "or"
-* **?** (question) - the proceeding character is optional
+* **?** (question) - the preceding character is optional
 * **\*** (asterisk) - select **zero or more** of the **preceding** character
 * **+** (plus) - select **one or more** of the **preceding** character
 * **.\*** (period asterisk) - match zero or more of any character, equivalent to shell's **\*** asterisk by itself
@@ -80,7 +80,7 @@ Uses the caret symbol (**^**) within a character set to indicate anything but th
 ## Wildcard character matches
 
 * **.** (period) - **gr.y** matches gray and grey, or any other character in the 3rd position
-* **.+** (period plus) - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all".  Either the plus or asterisk will work in this case and is equivalent to the asterisk by itself in shell commands.  The difference is that the plus match **one or more** characters and the asterisk is **zero or more**, which when the proceeding character is not a wildcard the difference will have more of an impact, but in this case since the proceeding character is the wildcard period they function equivalently here.
+* **.+** (period plus) - **begin.+** matches a string starting with "begin" along with the remainder of the string, so for "The beginning of it all" it will select "beginning of it all".  Either the plus or asterisk will work in this case and is equivalent to the asterisk by itself in shell commands.  The difference is that the plus match **one or more** characters and the asterisk is **zero or more**, which when the preceding character is not a wildcard the difference will have more of an impact, but in this case since the preceding character is the wildcard period they function equivalently here.
 * **.\*** (period asterisk)
 
 ## Match start and end of strings
