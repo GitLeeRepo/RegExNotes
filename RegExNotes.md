@@ -24,25 +24,25 @@ Note that since the following are special characters they must be escaped with a
 * **.** (period) - matches almost any character except line breaks
 * **|** (pipe) - provide conditional "or"
 * **?** (question) - the proceeding character is optional
-* **\*** (astericks) - select **zero or more** of the **preceeding** character
-* **+** (plus) - select **one or more** of the **preceeding** character
-* **.\*** (period asterisk) - match zero or more of any character, equivellent to shell's **\*** asterisk by itself
+* **\*** (asterisk) - select **zero or more** of the **preceding** character
+* **+** (plus) - select **one or more** of the **preceding** character
+* **.\*** (period asterisk) - match zero or more of any character, equivalent to shell's **\*** asterisk by itself
 * **\(** (open parenthesis) - Begin group
 * **\)** (close parenthesis) - End group
 * **\[** (open square bracket) - begin character set
 * **\{** (open curly bracket) - quantifier
 
-Note the wildcard **\*** (asterisk) behaves differently in a regular expression than it does in the shell.  It matches the **previous** character, it is not saying match any **following** character.  You can use a combination of the period and asterisk **.\*** to behave equivellently to the shell's asterisk, since the period is any one character and the asterisk says match zero or more of that one wildcard character.
+Note the wildcard **\*** (asterisk) behaves differently in a regular expression than it does in the shell.  It matches the **previous** character, it is not saying match any **following** character.  You can use a combination of the period and asterisk **.\*** to behave equivalently to the shell's asterisk, since the period is any one character and the asterisk says match zero or more of that one wildcard character.
 
 ## Expression Delimiters and global expression flag
 
-In many environments the regular expression must be contained within two forward slash (**/**) delimiters, e.g. **/findme/**.  For simplicity the examples here do not include these delimiters.  In addition, if you want the expression to match multiple occurrances you would include the **g** global flag after the last delimiter, e.g. **/findme/g**.  Again, for simplicity in these examples this is not shown.
+In many environments the regular expression must be contained within two forward slash (**/**) delimiters, e.g. **/findme/**.  For simplicity the examples here do not include these delimiters.  In addition, if you want the expression to match multiple occurrences you would include the **g** global flag after the last delimiter, e.g. **/findme/g**.  Again, for simplicity in these examples this is not shown.
 
 # Character Classes
 
 ## Sets of characters
 
-Use square brackes **\[\]** to match one character from a choice of characters.  Dashes (minus sign) are used to specify a range of characters.
+Use square brackets **\[\]** to match one character from a choice of characters.  Dashes (minus sign) are used to specify a range of characters.
 
 * **\[ae\]** - matches either "a" or "e" as in **gr\[ae]y** which will match either gray or grey.
 * **\[3-8\]** - matches a single digit between 3 and 8.
@@ -53,9 +53,9 @@ Use square brackes **\[\]** to match one character from a choice of characters. 
 
 ### Negation
 
-Uses the carret symbol (**^**) within a character set to indicate anything but this set
+Uses the caret symbol (**^**) within a character set to indicate anything but this set
 
-* **\[^A-Z\]** - Match any character that is NOT a captial letter
+* **\[^A-Z\]** - Match any character that is NOT a capital letter
 * **\[^a-zA-Z\\.\]** - Match any character that is NOT a letter or a period
 
 ## Character class shortcuts
@@ -92,7 +92,7 @@ Uses the carret symbol (**^**) within a character set to indicate anything but t
 
 ## Match beginning and ending characters of a word
 
-While the carret \(**^**\) and dollar sign **$** match the beginning of a string, it is often desireable to match the beginning or ending of words within the string. Where supported you can use the character class shortcuts **\\<** to match the beginning of a word and **\\>** to match the end of a word. Or use **\\b** which seems to be more widely supported.  For example, **grep** supports both **\b** and **\\< \\>** in default mode, but only the **\\b** notation in **-P** Perl mode.
+While the caret \(**^**\) and dollar sign **$** match the beginning of a string, it is often desirable to match the beginning or ending of words within the string. Where supported you can use the character class shortcuts **\\<** to match the beginning of a word and **\\>** to match the end of a word. Or use **\\b** which seems to be more widely supported.  For example, **grep** supports both **\b** and **\\< \\>** in default mode, but only the **\\b** notation in **-P** Perl mode.
 
 Using **\<** and **\>** where supported (you're generally better of using **\\b**):
 
@@ -118,7 +118,7 @@ Allows operations on a group of characters, for example matching multiple forms 
 
 * **test\(ing|er|ed)?** matches "test", "testing", "tester", "tested".  The "?" says all these endings are optional
 * **\[A-Za-z0-9_\]+@\[A-Za-z0-9_\]+\\.\(com|net|org\)** - match valid email address in com/net/org domains
-* **\\w+@\\w+\\.\(com|net|org\)** - same as email example above but using character class shortcuts insead
+* **\\w+@\\w+\\.\(com|net|org\)** - same as email example above but using character class shortcuts instead
 
 Note that the above email example handle simple emails of the form "name@company.domain", but not "first.last@divison.company.domain".  They also allow partial matches, so in the case of "first.last@company.domain" it will match "last@company.domain" which is of course wrong and not the actual email address this.  To address these issues a more complicate version is needed:
 
@@ -147,9 +147,9 @@ Back references can be use to reference captured groups within the search itself
 
 As mention, the [Interactive Tester](https://regexr.com/) uses the **$#** format to identify the capture group.  This is also used in Perl, vi, sed & awk.
 
-In JavaScript these captured groups are returned as part of the result array returned from the str.match(regExp) method.  The first (index zero) contains the entired matched result while indexes 1 through n contain the captured groups.  Other environments such as vi, sed and awk use **/#** after the expression to indicate which capture group number you want.
+In JavaScript these captured groups are returned as part of the result array returned from the str.match(regExp) method.  The first (index zero) contains the entire matched result while indexes 1 through n contain the captured groups.  Other environments such as vi, sed and awk use **/#** after the expression to indicate which capture group number you want.
 
-Python, Java, and C# use object notation (matchObj.Groups(#) in Java and C#) and matchObj.group(#) in Plython.
+Python, Java, and C# use object notation (matchObj.Groups(#) in Java and C#) and matchObj.group(#) in Python.
 
 ## Named capture groups
 
@@ -203,7 +203,7 @@ tbd
 
 ### grep
 
-Note that many of the regular expressions using the syntax in these notes do not work in **grep** by default.  However, by providing the **-P** for Perl arguement they do work (from a handful of examples I tried).  For example:
+Note that many of the regular expressions using the syntax in these notes do not work in **grep** by default.  However, by providing the **-P** for Perl argument they do work (from a handful of examples I tried).  For example:
 
 ```bash
 grep -P '^## S(et|how) email$' GitCommandNotes.md
