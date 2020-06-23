@@ -114,7 +114,7 @@ For wider support combining a character match with the **\\b** word boundary you
 
 ## Matching Multiple Lines
 
-* I used the following to search **multiple lines** in **VSCode** to **match multiple lines varing lines between two search tags**:
+* I used the following in **VSCode** to **match multiple lines varing lines between two search tags**:
 
 ```
 Start of search>>
