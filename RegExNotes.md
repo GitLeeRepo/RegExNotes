@@ -129,8 +129,8 @@ Start of search>>
 * An explanation on a Stack Overflow forum post with a similar need stated:
 
 ```
-  * [\s\S]*? matches lazily any character
-  * (?=\n.*?=|$) until a newline containing an = is ahead or $ end.
+  The [\s\S]*? matches lazily any character
+  The (?=\n.*?=|$) until a newline containing an = is ahead or $ end. (note from TK: I changed this part as in my example above)
 ```
 
 # Groups
