@@ -112,6 +112,27 @@ For wider support combining a character match with the **\\b** word boundary you
 * **colou?r** matches both color and colour
 * **auto(mobile)?** - using optional groups of character we can match both "auto" and "automobile"
 
+## Matching Multiple Lines
+
+* I used the following to search **multiple lines** in **VSCode** to **match multiple lines varing lines between two search tags**:
+
+```
+Start of search>>
+## Key Guitar Sites
+.*[\s\S]*?(?=\n.*--$)
+---
+---
+<<End of search
+```
+
+* This matched lines starting with **##Key Guitar Sites** and ended with **two dashed lines**.  This matched several hundred files with multiple lines that varied between these search tags and replaced it with new text that didn't vary.
+* An explanation on a Stack Overflow forum post with a similar need stated:
+
+```
+  * [\s\S]*? matches lazily any character
+  * (?=\n.*?=|$) until a newline containing an = is ahead or $ end.
+```
+
 # Groups
 
 Allows operations on a group of characters, for example matching multiple forms of a word
